@@ -1,0 +1,5 @@
+MetaTrader5==5.0.37  # For MT5 API integration
+pandas==2.0.3        # For data handling
+numpy==1.26.2        # For numerical calculations
+ta==0.10.2           # For technical indicators (like Moving Averages)
+matplotlib==3.8.2    # For visualizing trading data
