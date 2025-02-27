@@ -34,7 +34,7 @@ bool MachineLearningSignal()
 }
 
 //+------------------------------------------------------------------+
-//| Calculate indicators                                             |
+//| Calculate indicator                                             |
 //+------------------------------------------------------------------+
 void CalculateIndicators()
 {
