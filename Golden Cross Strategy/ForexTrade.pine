@@ -1,0 +1,39 @@
+//@version=5
+strategy("MLQ5 Forex Bot - PineScript", overlay=true)
+
+// Input parameters
+lots = input(0.1, title="Lot Size")
+stopLoss = input(30, title="Stop Loss (pips)") * syminfo.mintick
+takeProfit = input(60, title="Take Profit (pips)") * syminfo.mintick
+
+// Indicators
+fastEMA = input(50, title="Fast EMA")
+slowEMA = input(200, title="Slow EMA")
+macdFast = input(12, title="MACD Fast")
+macdSlow = input(26, title="MACD Slow")
+macdSignal = input(9, title="MACD Signal")
+rsiPeriod = input(14, title="RSI Period")
+
+// Calculating indicators
+emaFast = ta.ema(close, fastEMA)
+emaSlow = ta.ema(close, slowEMA)
+[macdLine, signalLine, _] = ta.macd(close, macdFast, macdSlow, macdSignal)
+rsiValue = ta.rsi(close, rsiPeriod)
+
+// Machine Learning Placeholder (Random Buy/Sell Signal)
+mlSignal = math.random(0, 1) > 0.5
+
+// Entry Conditions
+buyCondition = emaFast > emaSlow and macdLine > signalLine and rsiValue > 50 and mlSignal
+sellCondition = emaFast < emaSlow and macdLine < signalLine and rsiValue < 50 and mlSignal
+
+// Execute trades
+strategy.entry("Buy", strategy.long, when=buyCondition)
+strategy.exit("Sell TP/SL", from_entry="Buy", loss=stopLoss, profit=takeProfit)
+
+strategy.entry("Sell", strategy.short, when=sellCondition)
+strategy.exit("Buy TP/SL", from_entry="Sell", loss=stopLoss, profit=takeProfit)
+
+// Plot indicators
+plot(emaFast, color=color.blue, title="Fast EMA")
+plot(emaSlow, color=color.red, title="Slow EMA")
