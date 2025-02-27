@@ -26,4 +26,4 @@ async function trade() {
     }
 }
 
-setInterval(trade, 60 * 1000); // Runs every minute
+setInterval(trad, 60 * 1000); // Runs every minute
