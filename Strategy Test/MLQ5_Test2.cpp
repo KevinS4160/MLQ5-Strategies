@@ -66,5 +66,5 @@ int OnInit()
 void OnTick()
 {
     MLQ5StockStrategy strategy(10001, 1.5, 20, 50, 200, 12, 26, 9);
-    strategy.OnTicks();
+    strategy.OnTick();
 }
