@@ -6,7 +6,7 @@ lots = input(0.1, title="Lot Size")
 stopLoss = input(30, title="Stop Loss (pips)") * syminfo.mintick
 takeProfit = input(60, title="Take Profit (pips)") * syminfo.mintick
 
-// Indicators
+// Indicator
 fastEMA = input(50, title="Fast EMA")
 slowEMA = input(200, title="Slow EMA")
 macdFast = input(12, title="MACD Fast")
