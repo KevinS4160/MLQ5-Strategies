@@ -22,7 +22,7 @@ if (longCondition)
     strategy.entry("Long", strategy.long)
 
 if (shortCondition)
-    strategy.entry("Short", strategy.short)
+    strategy.entry("Shorts", strategy.short)
 
 // Plot indicators
 plot(fastEMA, title="Fast EMA", color=color.blue)
