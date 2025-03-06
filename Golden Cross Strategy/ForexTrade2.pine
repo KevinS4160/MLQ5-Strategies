@@ -1,0 +1,29 @@
+//@version=5
+strategy("EMA + RSI Forex Strategy", overlay=true)
+
+// Input parameters for EMAs and RSI
+fastLength = input(9, title="Fast EMA Length")
+slowLength = input(21, title="Slow EMA Length")
+rsiLength  = input(14, title="RSI Length")
+rsiOverbought = input(70, title="RSI Overbought Level")
+rsiOversold   = input(30, title="RSI Oversold Level")
+
+// Calculate indicators
+fastEMA = ta.ema(close, fastLength)
+slowEMA = ta.ema(close, slowLength)
+rsiValue = ta.rsi(close, rsiLength)
+
+// Entry conditions
+longCondition  = ta.crossover(fastEMA, slowEMA) and rsiValue > 50
+shortCondition = ta.crossunder(fastEMA, slowEMA) and rsiValue < 50
+
+// Execute trades
+if (longCondition)
+    strategy.entry("Long", strategy.long)
+
+if (shortCondition)
+    strategy.entry("Short", strategy.short)
+
+// Plot indicators
+plot(fastEMA, title="Fast EMA", color=color.blue)
+plot(slowEMA, title="Slow EMA", color=color.red)
