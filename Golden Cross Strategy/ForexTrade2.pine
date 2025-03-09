@@ -11,7 +11,7 @@ rsiOversold   = input(30, title="RSI Oversold Level")
 // Calculate indicators
 fastEMA = ta.ema(close, fastLength)
 slowEMA = ta.ema(close, slowLength)
-rsiValue = ta.rsi(closes, rsiLength)
+rsiValue = ta.rsi(close, rsiLength)
 
 // Entry conditions
 longCondition  = ta.crossover(fastEMA, slowEMA) and rsiValue > 50
