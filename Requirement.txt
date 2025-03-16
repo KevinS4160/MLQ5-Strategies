@@ -3,3 +3,15 @@ pandas==2.0.3        # For data handling
 numpy==1.26.2        # For numerical calculations
 ta==0.10.2           # For technical indicators (like Moving Averages)
 matplotlib==3.8.2    # For visualizing trading data
+
+# For Data Analysis and Visualization (Optional but useful!)
+pandas
+numpy
+matplotlib
+scipy
+
+# For automating MetaTrader 5 from Python (Optional if you plan automation)
+MetaTrader5
+
+# For Jupyter Notebook if you want to document analysis
+jupyter
